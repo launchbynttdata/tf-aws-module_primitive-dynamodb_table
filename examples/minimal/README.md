@@ -17,7 +17,7 @@ No providers.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_dynamodb_table"></a> [dynamodb\_table](#module\_dynamodb\_table) | ../.. | n/a |
-| <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | d2lqlh14iel5k2.cloudfront.net/module_library/resource_name/launch | ~> 1.0 |
+| <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | terraform.registry.launch.nttdata.com/module_library/resource_name/launch | ~> 1.0 |
 
 ## Resources
 
