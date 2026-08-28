@@ -17,8 +17,8 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 	awsClient := GetAWSDynamoDBClient(t)
 
 	t.Run("TestTableExists", func(t *testing.T) {
-		awsDynamoDBTableArn := terraform.Output(t, ctx.TerratestTerraformOptions(), "dynamodb_table_arn")
-		awsDynamoDBTableName := terraform.Output(t, ctx.TerratestTerraformOptions(), "dynamodb_table_id")
+		awsDynamoDBTableArn := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "dynamodb_table_arn")
+		awsDynamoDBTableName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "dynamodb_table_id")
 
 		table, err := awsClient.DescribeTable(context.TODO(), &dynamodb.DescribeTableInput{
 			TableName: &awsDynamoDBTableName,

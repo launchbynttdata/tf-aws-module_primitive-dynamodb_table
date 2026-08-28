@@ -103,7 +103,7 @@ If `make check` target is successful, developer is good to commit the code to pr
 - runs `conftests`. `conftests` make sure `policy` checks are successful.
 - runs `terratest`. This is integration test suit.
 - runs `opa` tests
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -111,12 +111,6 @@ If `make check` target is successful, developer is good to commit the code to pr
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.14 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.6 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.73.0 |
 
 ## Modules
 
@@ -132,19 +126,19 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Unique within a region name of the table. | `string` | n/a | yes |
-| <a name="input_hash_key"></a> [hash\_key](#input\_hash\_key) | Attribute to use as the hash (partition) key. Changes to this value forces creation of a new resourece. This must be defined in `attributes`. | `string` | n/a | yes |
-| <a name="input_range_key"></a> [range\_key](#input\_range\_key) | Attribute to use as the range (sort) key. Changes to this value forces creation of a new resourece. This must be defined in `attributes`. | `string` | `null` | no |
 | <a name="input_attributes"></a> [attributes](#input\_attributes) | Attributes of fields on the table. | `map(string)` | n/a | yes |
 | <a name="input_billing_mode"></a> [billing\_mode](#input\_billing\_mode) | Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PAY_PER_REQUEST`. | `string` | `"PAY_PER_REQUEST"` | no |
-| <a name="input_read_capacity"></a> [read\_capacity](#input\_read\_capacity) | Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required. For details on read units, see: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html#read-write-capacity-units | `number` | `null` | no |
-| <a name="input_write_capacity"></a> [write\_capacity](#input\_write\_capacity) | Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required. For details on write units, see: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html#read-write-capacity-units | `number` | `null` | no |
-| <a name="input_table_class"></a> [table\_class](#input\_table\_class) | Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. Default value is `STANDARD`. | `string` | `"STANDARD"` | no |
-| <a name="input_point_in_time_recovery"></a> [point\_in\_time\_recovery](#input\_point\_in\_time\_recovery) | Whether to enable point-in-time recovery. This can take up to 10 minutes to enable for new tables. Defaults to `false`. | `bool` | `false` | no |
 | <a name="input_deletion_protection_enabled"></a> [deletion\_protection\_enabled](#input\_deletion\_protection\_enabled) | Enables deletion protection for table. Defaults to `false`. | `bool` | `false` | no |
-| <a name="input_ttl_enabled"></a> [ttl\_enabled](#input\_ttl\_enabled) | Whether TTL is eanbled. Defaults to `false`. | `bool` | `false` | no |
-| <a name="input_ttl_attribute_name"></a> [ttl\_attribute\_name](#input\_ttl\_attribute\_name) | Name of the table attribute to store the TTL timestamp in. Has no effect unless `ttl_enabled` is set to `true`. | `string` | `null` | no |
+| <a name="input_hash_key"></a> [hash\_key](#input\_hash\_key) | Attribute to use as the hash (partition) key. Changes to this value forces creation of a new resourece. This must be defined in `attributes`. | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | Unique within a region name of the table. | `string` | n/a | yes |
+| <a name="input_point_in_time_recovery"></a> [point\_in\_time\_recovery](#input\_point\_in\_time\_recovery) | Whether to enable point-in-time recovery. This can take up to 10 minutes to enable for new tables. Defaults to `false`. | `bool` | `false` | no |
+| <a name="input_range_key"></a> [range\_key](#input\_range\_key) | Attribute to use as the range (sort) key. Changes to this value forces creation of a new resourece. This must be defined in `attributes`. | `string` | `null` | no |
+| <a name="input_read_capacity"></a> [read\_capacity](#input\_read\_capacity) | Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required. For details on read units, see: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html#read-write-capacity-units | `number` | `null` | no |
+| <a name="input_table_class"></a> [table\_class](#input\_table\_class) | Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. Default value is `STANDARD`. | `string` | `"STANDARD"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags to assign to the API. | `map(string)` | `null` | no |
+| <a name="input_ttl_attribute_name"></a> [ttl\_attribute\_name](#input\_ttl\_attribute\_name) | Name of the table attribute to store the TTL timestamp in. Has no effect unless `ttl_enabled` is set to `true`. | `string` | `null` | no |
+| <a name="input_ttl_enabled"></a> [ttl\_enabled](#input\_ttl\_enabled) | Whether TTL is eanbled. Defaults to `false`. | `bool` | `false` | no |
+| <a name="input_write_capacity"></a> [write\_capacity](#input\_write\_capacity) | Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required. For details on write units, see: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html#read-write-capacity-units | `number` | `null` | no |
 
 ## Outputs
 
@@ -152,4 +146,4 @@ No modules.
 |------|-------------|
 | <a name="output_arn"></a> [arn](#output\_arn) | ARN of the table |
 | <a name="output_id"></a> [id](#output\_id) | Name of the table |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
